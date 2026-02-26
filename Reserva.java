@@ -37,7 +37,23 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return String.format("Hóspede: %-15s | Quarto: %-12s | Dias: %2d | Total: R$ %.2f", 
+        return String.format("Hóspede: %-15s | Quarto: %-12s | Dias: %2d | Total: R$ %.2f",  
                 nomeHospede, tipoQuarto, numeroDias, calcularValorTotal());
+    }
+    
+    public static void main(String[] args) {
+       
+        Reserva reserva1 = new Reserva("João Silva", "Standard", 3, 150.0);
+        Reserva reserva2 = new Reserva("Maria Santos", "Luxo");
+        
+        System.out.println("Reservas de Hotel:");
+        System.out.println("==================");
+        System.out.println(reserva1);
+        System.out.println(reserva2);
+     
+        reserva2.setNumeroDias(5);
+        reserva2.setValorDiaria(200.0);
+        System.out.println("\nApós atualização:");
+        System.out.println(reserva2);
     }
 }
