@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// 1. Classe de Modelo
 class Produto implements Serializable {
     private static final long serialVersionUID = 1L;
     private int id;
@@ -15,7 +14,6 @@ class Produto implements Serializable {
         this.preco = preco;
     }
 
-    // Método para transformar o objeto em uma tag XML simples
     public String toXML() {
         return "  <produto>\n" +
                "    <id>" + id + "</id>\n" +
@@ -25,12 +23,10 @@ class Produto implements Serializable {
     }
 }
 
-// 2. Classe Principal
 public class ExemploArquivo {
     public static void main(String[] args) {
         String caminho = "produtos_db.txt";
 
-        // ESCRITA: Criando o arquivo com conteúdo sistemático (CSV-like)
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminho))) {
             writer.write("1;Notebook;3500.00");
             writer.newLine();
@@ -43,7 +39,6 @@ public class ExemploArquivo {
             System.err.println("Erro na escrita: " + e.getMessage());
         }
 
-        // LEITURA E TRANSFORMAÇÃO
         System.out.println("\n--- Convertendo dados para XML ---");
         System.out.println("<estoque>");
 
